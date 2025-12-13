@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-phase="enforcement">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enforcement · Trademark Journey</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1 id="pTitle"></h1>
+        <p class="sub" id="pSub"></p>
+        <div class="pills" id="pPills" style="margin-top:12px;"></div>
+      </div>
+      <div class="tag"><span class="dot"></span> Phase 07</div>
+    </header>
+
+    <section class="panel">
+      <div class="page">
+        <!-- LEFT: What happens (bullets) -->
+        <div class="card">
+          <h2>What happens</h2>
+          <ul id="pSteps"></ul>
+        </div>
+
+        <!-- RIGHT: Who does what (role circles) -->
+        <div class="card rolesCard">
+          <h2>Who does what</h2>
+          <div class="roleCircles" id="pRoles"></div>
+        </div>
+
+        <!-- LEFT bottom: Outputs -->
+        <div class="card">
+          <h2>Outputs</h2>
+          <ul id="pOut"></ul>
+        </div>
+      </div>
+
+      <!-- NAV OUTSIDE cards (footer bar) -->
+      <div class="phaseNav nav" id="pNav"></div>
+    </section>
+  </div>
+
+  <script src="phases.js"></script>
+  <script src="phase-page.js"></script>
+  <script src="role-tooltips.js"></script>
+</body>
+</html>

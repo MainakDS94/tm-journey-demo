@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Questel Trademark Journey · Detailed</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="detailed.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Trademark Journey · Detailed View</h1>
+        <p class="sub">
+          A phase-by-phase breakdown of the trademark lifecycle, showing how work is distributed
+          across Marketing, Paralegals, IP Managers, Legal teams, and outside counsel — and where
+          Questel products support each step.
+        </p>
+
+        <div class="toggleRow">
+          <button class="btn secondary" id="modeInhouse" type="button">
+            In-house model · Equinox Corporate
+          </button>
+          <button class="btn secondary" id="modeLawfirm" type="button">
+            Law firm model · Equinox Law
+          </button>
+          <a class="btn secondary" href="index.html">← Back to overview</a>
+        </div>
+      </div>
+
+      <div class="tag">
+        <span class="dot"></span> Detailed
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="detailWrap">
+
+        <!-- Phase navigation / lifecycle index -->
+        <aside class="toc card">
+          <h2>Trademark lifecycle</h2>
+          <p class="muted" style="margin-top:6px">
+            Jump directly to a phase to review responsibilities, deliverables,
+            decision points, and supporting Questel tools.
+          </p>
+          <div class="tocGrid" id="toc"></div>
+        </aside>
+
+        <!-- Dynamic phase sections injected here -->
+        <main id="sections"></main>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="phases.js"></script>
+  <script src="detailed.js"></script>
+</body>
+</html>

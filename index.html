@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trademark Journey — Overview</title>
+
+  <!-- IMPORTANT: keep path exact -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+		<div class="brandRow">
+
+			<div>
+				<h1>Questel Trademark Journey</h1>
+				<p class="sub">
+					An end-to-end view of the trademark lifecycle, from name ideation to long-term protection,
+					mapped across Questel products and services.
+					Click any phase to explore the details.
+				</p>
+			</div>
+		</div>
+
+		<div class="tag"><span class="dot"></span> Overview</div>
+	</header>
+
+
+    <section class="panel">
+      <div class="map">
+        <!-- connector line behind the grid -->
+
+        <div class="mapGrid" id="grid"></div>
+      </div>
+
+
+    </section>
+  </div>
+
+  <!-- Load phases.js safely -->
+  <script src="./phases.js" defer></script>
+
+  <!-- Render after DOM + phases.js -->
+  <script defer>
+    function renderGrid() {
+      const grid = document.getElementById("grid");
+      if (!grid) return;
+
+      // If phases.js failed or is not found, show a clear message
+      if (!window.PHASES || !Array.isArray(window.PHASES) || window.PHASES.length === 0) {
+        grid.innerHTML = `
+          <div class="card">
+            <h2>Data not loaded</h2>
+            <p>
+              <strong>phases.js</strong> did not load or does not define <strong>window.PHASES</strong>.
+              Check that <code>phases.js</code> is in the same folder as <code>index.html</code>.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const pageOf = (key) => `${key}.html`;
+      const pillHtml = (pills) =>
+        pills.map((x, i) => `<span class="pill ${i === 0 ? "accent" : ""}">${x}</span>`).join("");
+
+      grid.innerHTML = "";
+      window.PHASES.forEach((p) => {
+        const a = document.createElement("a");
+        a.href = pageOf(p.key);
+        a.className = "phase";
+        a.style.textDecoration = "none";
+        a.innerHTML = `
+          <div class="top">
+            <div class="icon" aria-hidden="true"><span>${p.icon ?? ""}</span></div>
+            <div class="idx">${p.idx ?? ""}</div>
+          </div>
+          <h3 class="title">${p.title ?? ""}</h3>
+          <div class="desc">${p.desc ?? ""}</div>
+          <div class="pills">${pillHtml(p.products ?? [])}</div>
+        `;
+        grid.appendChild(a);
+      });
+    }
+
+    // Ensure render runs even if defer ordering behaves unexpectedly
+    window.addEventListener("DOMContentLoaded", renderGrid);
+    window.addEventListener("load", renderGrid);
+  </script>
+</body>
+</html>
