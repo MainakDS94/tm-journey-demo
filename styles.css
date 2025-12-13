@@ -479,6 +479,9 @@ h1{
   opacity:1;
   transform: translateY(-50%) translateX(0);
 }
+.roleChip.open .rolePop{
+  opacity: 1;
+}
 
 .rolePopTitle{
   font-weight:800;
@@ -585,6 +588,7 @@ h1{
     display: none;
   }
 }
+
 
 
 
