@@ -554,44 +554,62 @@ h1{
   font-weight:700;
 }
 /* =========================
-   MOBILE TOOLTIP FIX
+   MOBILE ROLE TOOLTIP — HARD FIX (Chrome Android)
    ========================= */
 
 @media (max-width: 820px) {
 
-  /* Make role circles larger & easier to tap */
+  /* Larger, tappable role circles */
   .roleChip {
-    width: 104px;
-    height: 104px;
+    width: 112px;
+    height: 112px;
   }
 
-  /* Tooltip becomes a centered overlay */
-  .rolePop {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    right: auto;
+  /* Disable desktop hover positioning completely */
+  .roleChip .rolePop {
+    position: fixed !important;
+    inset: auto !important;
 
-    transform: translate(-50%, -50%);
-    width: calc(100vw - 32px);
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: calc(100vw - 24px);
     max-width: 420px;
 
-    z-index: 1000;
+    z-index: 1001;
+
+    opacity: 0;
+    pointer-events: none;
   }
 
-  /* Remove arrow (doesn’t make sense on mobile) */
+  /* Show tooltip on tap (focus or active) */
+  .roleChip:focus .rolePop,
+  .roleChip:focus-visible .rolePop,
+  .roleChip:active .rolePop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Remove arrow entirely */
   .rolePop::after {
-    display: none;
+    display: none !important;
   }
 
-  /* Darken background slightly when tooltip is open */
+  /* Dim background when tooltip is open */
+  .roleChip:focus::before,
   .roleChip:focus-visible::before,
   .roleChip:active::before {
     content: "";
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,.45);
-    z-index: 999;
+    z-index: 1000;
   }
 }
+
+
 
