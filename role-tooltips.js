@@ -1,25 +1,68 @@
-
+// role-tooltips.js
 (function () {
-  // Only enable tap behavior on touch devices
-  const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
-  if (!isTouch) return;
+  // Enable on touch-like devices (more reliable than hover:none)
+  const isTouchLike =
+    (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ||
+    "ontouchstart" in window;
 
-  // Close any open tooltips
-  function closeAll() {
-    document.querySelectorAll('.roleChip.is-open').forEach(el => el.classList.remove('is-open'));
+  if (!isTouchLike) return;
+
+  // Create a single overlay for role details
+  let overlay = document.getElementById("roleOverlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.id = "roleOverlay";
+    overlay.innerHTML = `
+      <div class="roleOverlayBackdrop" data-close="1"></div>
+      <div class="roleOverlaySheet" role="dialog" aria-modal="true" aria-label="Role details">
+        <button class="roleOverlayClose" type="button" aria-label="Close" data-close="1">✕</button>
+        <div class="roleOverlayBody"></div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
   }
 
-  // Toggle on tap
-  document.addEventListener('click', (e) => {
-    const chip = e.target.closest('.roleChip');
-    if (!chip) { closeAll(); return; }
+  const body = overlay.querySelector(".roleOverlayBody");
 
-    // If tapping a chip, toggle it and close others
-    const wasOpen = chip.classList.contains('is-open');
-    closeAll();
-    if (!wasOpen) chip.classList.add('is-open');
+  function closeOverlay() {
+    overlay.classList.remove("is-open");
+    body.innerHTML = "";
+  }
 
-    e.preventDefault();
-    e.stopPropagation();
-  }, true);
+  function openOverlayFromChip(chip) {
+    const pop = chip.querySelector(".rolePop");
+    if (!pop) return;
+
+    // Use the existing tooltip content
+    body.innerHTML = pop.innerHTML;
+    overlay.classList.add("is-open");
+  }
+
+  document.addEventListener(
+    "click",
+    (e) => {
+      // Close overlay
+      if (e.target && e.target.getAttribute("data-close") === "1") {
+        closeOverlay();
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+
+      // Open on tapping a role chip
+      const chip = e.target.closest(".roleChip");
+      if (!chip) return;
+
+      openOverlayFromChip(chip);
+      e.preventDefault();
+      e.stopPropagation();
+    },
+    true
+  );
+
+  // Escape closes
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeOverlay();
+  });
 })();
+
