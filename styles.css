@@ -479,9 +479,7 @@ h1{
   opacity:1;
   transform: translateY(-50%) translateX(0);
 }
-.roleChip.open .rolePop{
-  opacity: 1;
-}
+
 
 .rolePopTitle{
   font-weight:800;
@@ -597,6 +595,73 @@ h1{
 
   .rolePop::after{
     display: none;
+  }
+}
+
+/* =========================================================
+   MOBILE ROLE DETAILS OVERLAY (never out of frame)
+   ========================================================= */
+
+#roleOverlay{
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+}
+
+#roleOverlay.is-open{
+  display: block;
+}
+
+.roleOverlayBackdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(2px);
+}
+
+.roleOverlaySheet{
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: min(560px, calc(100vw - 24px));
+  max-height: min(70vh, 560px);
+  overflow: auto;
+
+  padding: 14px 14px 16px;
+  border-radius: 18px;
+  background: rgba(10,14,22,.96);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 22px 55px rgba(0,0,0,.62);
+}
+
+.roleOverlayClose{
+  appearance: none;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.90);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 700;
+  float: right;
+}
+
+.roleOverlayBody{
+  padding-top: 8px;
+  clear: both;
+}
+
+/* Make the existing tooltip container not interfere on touch devices */
+@media (pointer: coarse){
+  .roleChip .rolePop{
+    display: none !important; /* we show overlay instead */
+  }
+
+  .roleChip{
+    width: 110px;
+    height: 110px;
   }
 }
 
