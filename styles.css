@@ -75,12 +75,23 @@ h1{
 }
 
 .panel{
+  position: relative;
+
   border:1px solid var(--stroke);
   border-radius:20px;
-  background:var(--panel);
+
+  /* solid glass layer */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.045)
+    );
+
   box-shadow:var(--shadow);
   overflow:hidden;
 }
+
 
 .hint{
   padding:10px 16px 14px;
@@ -304,6 +315,12 @@ h1{
   flex-wrap:wrap;
   margin-top:14px;
   padding:0 18px 18px;
+}
+/* Bottom navigation should feel anchored, not floating */
+.phaseNav,
+.nav{
+  background: rgba(255,255,255,.02);
+  padding-top: 12px;
 }
 
 .btn{
@@ -610,6 +627,7 @@ h1{
     z-index: 1000;
   }
 }
+
 
 
 
