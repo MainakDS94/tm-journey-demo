@@ -24,7 +24,7 @@ window.PHASES = [
         name: "Marketing / Brand",
         img: "assets/roles/marketing.jpg",
         work: [
-          "Propose candidate names with brand context (meaning, tone, target audience).",
+          "Propose and capture candidate names with brand context (meaning, tone, target audience) in Equinox Brand Proposal.",
           "Provide intended goods/services and target markets.",
           "Align internal stakeholders on preferred options and alternates."
         ]
@@ -33,7 +33,7 @@ window.PHASES = [
         name: "Paralegal",
         img: "assets/roles/paralegal.jpg",
         work: [
-          "Capture names and variants in Equinox Brand Proposal.",
+          
           "Standardise entries and ensure required fields are complete.",
           "Track comments, decisions, and shortlist status over time."
         ]
@@ -83,13 +83,13 @@ window.PHASES = [
   icon: "🔎",
   title: "Clearance",
   desc: "Check if the name is risky or already taken.",
-  products: ["Markify ProSearch", "Markify Comprehensive Search", "Markify Bulk Search"],
+  products: ["Markify ProSearch", "Markify Comprehensive Search", "Markify Bulk Search","Search services"],
   overview:
     "Search for similar trademarks and decide whether to proceed, adjust the name, or change filing scope.",
 
   steps: [
   "Define search scope: markets, classes, and name variants.",
-  "Select the appropriate search approach based on the task.",
+  "Select the search approach: self-serve in Markify (ProSearch / Comprehensive / Bulk) or request Questel Search Services (assisted) when Markify is not used.",
   "Run searches and identify the most relevant conflicts.",
   "Evaluate risk based on similarity, scope, and status.",
   "Decision gate: proceed, adjust scope, switch name, or stop."
@@ -103,7 +103,8 @@ window.PHASES = [
       work: [
         "Run searches and keep the scope consistent (countries, classes, variants).",
         "Use Bulk Search when comparing many candidate marks quickly (up to ~500 at once).",
-        "Compile a concise conflict pack (top hits + why they matter + links/screens)."
+        "Compile a concise conflict pack (top hits + why they matter + links/screens).",
+		"If Markify is not used, prepare the search brief for Questel Search Services (scope, variants, classes) and attach the deliverable to the case record."
       ]
     },
     {
@@ -112,7 +113,8 @@ window.PHASES = [
       work: [
         "Set the search scope aligned to launch strategy (priority markets, classes).",
         "Interpret risk in context of the portfolio and business priorities.",
-        "Choose proceed vs modify vs drop (and when to escalate to counsel)."
+        "Choose proceed vs modify vs drop (and when to escalate to counsel).",
+		"When using Questel Search Services, validate the brief, review the deliverable, and make the go/no-go decision."
       ]
     },
     {
@@ -128,11 +130,22 @@ window.PHASES = [
       name: "Outside Counsel (Law Firm)",
       img: "assets/roles/outside-counsel.jpg",
       work: [
-        "Often delivers a one-time professional clearance using Comprehensive Search.",
+        "Often delivers a one-time professional clearance using Comprehensive Search or Questel Search services.",
         "Provides the legal opinion on registrability and conflict risk.",
         "Recommends mitigation options (spec narrowing, strategy, next searches)."
+
       ]
-    }
+    },
+	{
+		name: "Questel Services",
+		img: "assets/roles/questel-services.jpg",
+		work: [
+			"Run the search based on the provided brief (scope, jurisdictions, classes, variants).",
+			"Deliver a structured results pack (top conflicts, links/screens, and context).",
+			"Support follow-up iterations (additional variants, narrower scope) when requested."
+		]
+	}
+
   ],
 
   outputs: [
@@ -180,9 +193,9 @@ window.PHASES = [
     steps: [
       "Confirm owner entity, mark representation (word/logo), and filing jurisdictions.",
       "Draft goods/services specification aligned with business intent and risk tolerance.",
-      "Use Qthena guidance to refine terminology and local practice requirements.",
+      "Use Qthena guidance to refine terminology and local practice requirements, and record drafting decisions in the Equinox case.",
       "Collect required data (priority claims, supporting docs where applicable).",
-      "Submit via Questel Filing Services and open the case for tracking."
+      "Submit via Questel Filing Services or manage the filing, documents, and status centrally in Equinox."
     ],
 
     roles: [
@@ -230,7 +243,17 @@ window.PHASES = [
           "Prepare any required legal statements or limitations.",
           "Advise on best filing route in complex jurisdictions."
         ]
-      }
+      },
+	  {
+		name: "Questel Services",
+		img: "assets/roles/questel-services.jpg",
+		work: [
+			"Prepare and submit trademark applications based on the approved filing instructions.",
+			"Ensure formal compliance with office requirements.",
+			"Return filing confirmations and documents for tracking in Equinox."
+		]
+		}
+
     ],
 
     outputs: [
@@ -249,7 +272,7 @@ window.PHASES = [
     icon: "🛡️",
     title: "Prosecution",
     desc: "Handle office objections and deadlines.",
-    products: ["Equinox Corporate" , "Equinox Law", "Qthena", "Uz.ip"],
+    products: ["Equinox Corporate" , "Equinox Law", "Equinox Corporate+", "Equinox Law+", "Qthena", "Uz.ip"],
     overview: "Manage office actions, evidence, deadlines, and responses until the application is allowed or refused.",
 
     steps: [
@@ -325,7 +348,7 @@ window.PHASES = [
     icon: "✅",
     title: "Registration",
     desc: "Trademark is approved and stored in the portfolio.",
-    products: ["Equinox Corporate","Equinox Law"],
+    products: ["Equinox Corporate","Equinox Law", "Equinox Corporate+", "Equinox Law+"],
     overview: "Once accepted, the trademark becomes a managed asset with documents, scope, and upcoming maintenance dates.",
 
     steps: [
@@ -399,7 +422,7 @@ window.PHASES = [
     icon: "👁️",
     title: "Monitoring",
     desc: "Watch for new filings and online misuse.",
-    products: ["Markify Trademark Watch", "Markify Brand Monitor", "Markify Intelligence Monitor", "Markify Domain Watch"],
+    products: ["Markify Trademark Watch", "Markify Intelligence Monitor", "Markify Brand Monitor", "Markify Domain Watch", "Online Brand Protection services"],
     overview: "Detect conflicts and online misuse early, then triage and escalate when necessary.",
 
 	approaches: [
@@ -429,6 +452,7 @@ window.PHASES = [
 		"Define monitoring scope and alert routing (legal, intelligence, online/digital).",
 		"Configure Trademark Watch + Intelligence Monitor for legal and portfolio signals.",
 		"Configure Brand Monitor + Domain Watch for online misuse and domain abuse.",
+		"Monitor marketplaces, web content, social media, domains, and digital footprint for misuse and phishing using OBP services.",
 		"Paralegal triages alerts: ignore, watchlist, investigate, escalate.",
 		"IP/Legal approves escalation thresholds; escalate to Enforcement when action is approved."
 	],
@@ -478,7 +502,17 @@ window.PHASES = [
           "Advise on opposition windows and cancellation strategies.",
           "Support local actions where needed."
         ]
-      }
+      },
+	  {
+		name: "Questel Services",
+		img: "assets/roles/questel-services.jpg",
+		work: [
+			"Operate online brand protection monitoring across marketplaces, web, social, and domains.",
+			"Investigate misuse signals and provide actionable reports.",
+			"Execute takedown actions when legally approved."
+		]
+		}
+
     ],
 	
 	
@@ -500,7 +534,7 @@ window.PHASES = [
 	icon: "⚖️",
 	title: "Enforcement",
 	desc: "Opposition, cancellation, takedowns, or litigation when conflicts arise.",
-	products: ["Equinox Corporate", "Equinox Law", "Qthena", "Uz.ip"],
+	products: ["Equinox Corporate", "Equinox Law", "Equinox Corporate+", "Equinox Law+", "Qthena", "Uz.ip"],
 	overview: "Turn conflicts into structured cases: decide the action, manage evidence and deadlines, and close with a documented outcome.",
 
 	steps: [
@@ -579,15 +613,15 @@ window.PHASES = [
     icon: "🔁",
     title: "Maintenance",
     desc: "Renewals and portfolio changes over time.",
-    products: ["Renewals Services", "Recordals Services"],
+    products: ["Renewals Services", "Recordals Services", "Equinox Corporate", "Equinox Law", "Equinox Corporate+", "Equinox Law+"],
     overview: "Renew rights on time and record official changes (ownership/merger/assignment) to keep portfolio data accurate.",
 
     steps: [
-      "Maintain a clear renewal calendar and confirm which rights to renew vs drop.",
+      "Maintain a clear renewal calendar in Equinox and confirm which rights to renew vs drop.",
       "Trigger renewals through Questel renewal services with correct scope and timing.",
       "When changes occur (address, name, ownership, merger/acquisition), prepare recordal packages.",
       "Execute recordals via Questel recordals services to update official registers.",
-      "Update portfolio records so reporting, enforcement, and ownership chain remain accurate."
+      "Update and validate portfolio records in Equinox so reporting, enforcement, and ownership chain remain accurate."
     ],
 
     roles: [
@@ -634,7 +668,17 @@ window.PHASES = [
           "Advise on local renewal/recordal requirements when complex.",
           "Support filings requiring notarisation/legalisation or local formalities."
         ]
-      }
+      },
+	  {
+		name: "Questel Services",
+		img: "assets/roles/questel-services.jpg",
+		work: [
+			"Execute renewals and recordals based on validated instructions.",
+			"Ensure correct timing, scope, and office compliance.",
+			"Return confirmations and official documents for portfolio update."
+		]
+		}
+
     ],
 
     outputs: [
