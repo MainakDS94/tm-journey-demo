@@ -14,6 +14,7 @@ The demo is designed to:
 **Disclaimer**
 This is a conceptual demo created for illustration purposes only.  
 It is **not a production system** and should not be used for commercial or operational decision-making.
+Images are sourced from Pexels under a free license.
 
 ---
 
